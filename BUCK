@@ -14,7 +14,10 @@ apple_bundle(
 
 apple_binary(
   name = 'BuckDemoAppBinary',
-  deps = [':BuckDemoAppResources'],
+  deps = [
+    ':BuckDemoAppResources',
+    '//Libraries/DHUIKit:DHUIKit',
+  ],
   preprocessor_flags = ['-fobjc-arc'],
   compiler_flags = ['-Wno-objc-designated-initializers'],
   headers = glob([

@@ -1,0 +1,16 @@
+apple_library(
+  name = 'DHUIKit',
+  deps = [],
+  preprocessor_flags = ['-fobjc-arc'],
+  exported_headers = glob([
+    'DHUIKit/**/*.h',
+  ]),
+  srcs = glob([
+    'DHUIKit/**/*.m',
+  ]),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+  ],
+  visibility = ['PUBLIC'],
+)
