@@ -5,7 +5,7 @@
   combined_preprocess_and_compile = true
 
 [alias]
-  demo_app = //:BuckDemoApp
+  demo_app = //Apps/BuckDemoApp:BuckDemoApp
 
 [project]
   ide = xcode
