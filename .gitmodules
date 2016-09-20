@@ -1,0 +1,3 @@
+[submodule "ThirdPartyLibraries/ComponentKit"]
+	path = ThirdPartyLibraries/ComponentKit
+	url = git://github.com/facebook/componentkit

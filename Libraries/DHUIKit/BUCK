@@ -1,12 +1,19 @@
 apple_library(
   name = 'DHUIKit',
-  deps = [],
-  preprocessor_flags = ['-fobjc-arc'],
+  deps = [
+    '//ThirdPartyLibraries/ComponentKit:ComponentKit',
+  ],
+  preprocessor_flags = [
+    '-fobjc-arc',
+    '-fno-objc-arc-exceptions',
+    '-Qunused-arguments',
+  ],
   exported_headers = glob([
     'DHUIKit/**/*.h',
   ]),
   srcs = glob([
     'DHUIKit/**/*.m',
+    'DHUIKit/**/*.mm',
   ]),
   frameworks = [
     '$SDKROOT/System/Library/Frameworks/UIKit.framework',

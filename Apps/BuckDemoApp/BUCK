@@ -18,8 +18,29 @@ apple_binary(
     ':BuckDemoAppResources',
     '//Libraries/DHUIKit:DHUIKit',
   ],
-  preprocessor_flags = ['-fobjc-arc'],
-  compiler_flags = ['-Wno-objc-designated-initializers'],
+  preprocessor_flags = [
+    '-fobjc-arc',
+    '-fno-objc-arc-exceptions',
+    '-Qunused-arguments',
+  ],
+  compiler_flags = [
+    '-Wno-objc-designated-initializers',
+    '-Werror',
+    '-Wno-c++11-extensions',
+    '-g',
+    '-Wunused-variable',
+    '-Wunused-function',
+    '-fpascal-strings',
+    '-fstrict-aliasing',
+    '-Wenum-conversion',
+    '-Wint-conversion',
+  ],
+  linker_flags = [
+    '-ObjC',
+    '-lc++',
+    '-fobjc-link-runtime',
+    '-pie',
+  ],
   headers = glob([
     '*.h',
   ]),
@@ -28,8 +49,11 @@ apple_binary(
     '*.mm',
   ]),
   frameworks = [
-    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+    '$SDKROOT/System/Library/Frameworks/CoreGraphics.framework',
+    '$SDKROOT/System/Library/Frameworks/CoreText.framework',
     '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+    '$SDKROOT/System/Library/Frameworks/QuartzCore.framework',
+    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
   ],
 )
 
