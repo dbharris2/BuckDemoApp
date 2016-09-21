@@ -1,5 +1,6 @@
 ### Setup
-```brew install buck```
+- ```brew install buck```
+- ```brew install watchman```
 
 ### How to get up and running
 - ```cd iOS```
