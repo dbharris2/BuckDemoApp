@@ -37,17 +37,23 @@
 - (void)viewDidLayoutSubviews
 {
   [super viewDidLayoutSubviews];
-  _label.frame = CGRectMake(0,
-                            200,
-                            self.view.frame.size.width * 0.5f,
-                            self.view.frame.size.height * 0.5f);
+
+  const CGSize labelSize = [_label sizeThatFits:{
+    .width = CGRectGetWidth(self.view.bounds),
+    .height = CGRectGetHeight(self.view.bounds)
+  }];
+
+  _label.frame = (CGRect) {
+    .origin = {.x = 0, .y = self.topLayoutGuide.length},
+    .size = {.width = labelSize.width, .height = labelSize.height}
+  };
 }
 
 #pragma mark - CKComponentProvider
 
 + (CKComponent *)componentForModel:(id<NSObject>)model context:(id<NSObject>)context
 {
-  return [DHLabelComponent newWithText:@"ComponentKit!"];
+  return [DHLabelComponent newWithText:@"DHLabelComponent!"];
 }
 
 @end

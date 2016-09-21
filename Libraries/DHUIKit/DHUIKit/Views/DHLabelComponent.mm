@@ -12,9 +12,10 @@
           [CKLabelComponent
            newWithLabelAttributes:{
              .string = text,
-             .font = [UIFont systemFontOfSize:32 weight:1],
            }
-           viewAttributes:{}
+           viewAttributes:{
+             {@selector(setBackgroundColor:), [UIColor clearColor]},
+           }
            size:{}]];
 }
 
