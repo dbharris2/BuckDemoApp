@@ -1,4 +1,6 @@
 ### Setup
+- ```brew update```
+- ```brew tap facebook/fb```
 - ```brew install buck```
 - ```brew install watchman```
 
