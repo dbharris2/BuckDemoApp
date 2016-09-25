@@ -1,0 +1,22 @@
+apple_library(
+  name = 'DHImageDownloader',
+  deps = [
+    '//ThirdPartyLibraries/ComponentKit:ComponentKit',
+  ],
+  preprocessor_flags = [
+    '-fobjc-arc',
+    '-fno-objc-arc-exceptions',
+    '-Qunused-arguments',
+  ],
+  exported_headers = glob([
+    'DHImageDownloader/**/*.h',
+  ]),
+  srcs = glob([
+    'DHImageDownloader/**/*.m',
+  ]),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+  ],
+  visibility = ['PUBLIC'],
+)

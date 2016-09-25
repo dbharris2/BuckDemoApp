@@ -1,0 +1,60 @@
+apple_bundle(
+  name = 'NASA',
+  binary = ':NASABinary',
+  extension = 'app',
+  info_plist = 'Info.plist',
+)
+
+apple_binary(
+  name = 'NASABinary',
+  deps = [
+    '//Libraries/DHImageDownloader:DHImageDownloader',
+    '//Libraries/DHUIKit:DHUIKit',
+  ],
+  preprocessor_flags = [
+    '-fobjc-arc',
+    '-fno-objc-arc-exceptions',
+    '-Qunused-arguments',
+  ],
+  compiler_flags = [
+    '-Wno-objc-designated-initializers',
+    '-Werror',
+    '-Wno-c++11-extensions',
+    '-g',
+    '-Wunused-variable',
+    '-Wunused-function',
+    '-fpascal-strings',
+    '-fstrict-aliasing',
+    '-Wenum-conversion',
+    '-Wint-conversion',
+    '-Wno-arc-performSelector-leaks',
+  ],
+  linker_flags = [
+    '-ObjC',
+    '-lc++',
+    '-fobjc-link-runtime',
+    '-pie',
+  ],
+  headers = glob([
+    '*.h',
+    './**/*.h',
+  ]),
+  srcs = glob([
+    '*.m',
+    '*.mm',
+    './**/*.m',
+    './**/*.mm',
+  ]),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/CoreGraphics.framework',
+    '$SDKROOT/System/Library/Frameworks/CoreText.framework',
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+    '$SDKROOT/System/Library/Frameworks/QuartzCore.framework',
+    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+  ],
+)
+
+apple_package(
+  name = 'NASAPackage',
+  bundle = ':NASA',
+)
