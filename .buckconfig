@@ -6,6 +6,7 @@
 
 [alias]
   demo_app = //Apps/BuckDemoApp:BuckDemoApp
+  nasa_app = //Apps/NASA:NASA
 
 [project]
   ide = xcode
